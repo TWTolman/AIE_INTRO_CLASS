@@ -15,8 +15,8 @@ public class PlayerInputComponent : MonoBehaviour {
 
     {
         if (Input.GetButton("Fire1") && CurrentGun != null) CurrentGun.Fire();
-
- 
+       
+     
     }
 
 
