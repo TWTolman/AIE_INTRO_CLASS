@@ -11,6 +11,7 @@ public class PlayerInputComponent : MonoBehaviour {
 		
 	}
 
+   
     public void UpdateInput()
 
     {

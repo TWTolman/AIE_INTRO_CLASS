@@ -32,8 +32,11 @@ public class PlayerMover : MonoBehaviour {
         IPDirection.x = Input.GetAxisRaw("Horizontal");
         IPDirection.z = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(KeyCode.Space)) Sprint = true;
+        if (Input.GetKey(KeyCode.Joystick1Button1)) Sprint = true;
         else Sprint = false;
+
+        //if (Input.GetKey(KeyCode.Space)) Sprint = true;
+        //else Sprint = false;
     }
 
     public Vector3 VectorClamp(Vector3 CurrentVector, float XMax, float YMax, float ZMax)

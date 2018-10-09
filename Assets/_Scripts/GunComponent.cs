@@ -7,6 +7,7 @@ public class GunComponent : MonoBehaviour
 
 
     public GameObject BulletPrefab;
+    public GameObject ReloadText;
 
     public float BulletSpeed = 500f;
 
@@ -18,29 +19,45 @@ public class GunComponent : MonoBehaviour
 
     public bool ShootText;
     public bool ReloadCheck;
+    public bool CreateText;
 
     float DT;
     public Transform ShootPoint;
+    public Transform PlayerText;
     public float BulletLaunchVelocity = 10;
 
 
  
+    public void CreateReloadText()
+
+    {
+       if (CreateText = false && (CurrentMagCapacity <= 0 ))
+            Instantiate(ReloadText, transform);
+        CreateText = true;
+     }
 
 
     public void Reload()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && CurrentMagCapacity <= 0 ) ReloadCheck = true;
-           else ReloadCheck = false;
+
+        if (Input.GetKey(KeyCode.Joystick1Button3) && CurrentMagCapacity <= 0) ReloadCheck = true;
+        else ReloadCheck = false;
+        
+
+        //if (Input.GetKey(KeyCode.LeftShift) && CurrentMagCapacity <= 0 ) ReloadCheck = true;
+          // else ReloadCheck = false;
 
         if (ReloadCheck == true)
+
 
         {
 
             Debug.Log("RELOADED");
             CurrentMagCapacity = MaxMagCapcity;
 
-
         }
+
+      
 
     }
 
@@ -60,25 +77,26 @@ public class GunComponent : MonoBehaviour
 
             GameObject TempBullet = Instantiate(BulletPrefab, ShootPoint.position, ShootPoint.rotation);
             TempBullet.GetComponent<Rigidbody>().velocity = ShootPoint.forward * BulletLaunchVelocity;
-            Destroy(TempBullet, 4.0f);
+            Destroy(TempBullet, 10.0f);
 
-
+            ShootDelay = MaxShootDelay;
+            CurrentMagCapacity--;
 
             //  GameObject clone;
             // clone = Instantiate(BulletPrefab, transform.position, transform.rotation) as GameObject;
             // clone.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 10);
-
-
-            ShootDelay = MaxShootDelay;
-            CurrentMagCapacity--;
 
         }
 
         //BulletPrefab = Instantiate (BulletPrefab, transform.position, transform.rotation) as GameObject;
         //BulletSpeed = transform.TransformDirection(Vector3.forward * 10)
 
-        else if (CurrentMagCapacity <= 0)
+        else if (CurrentMagCapacity <= 0 )
         {
+
+            //Instantiate(ReloadText, transform);
+
+            //GameObject Temp_ReloadText = Instantiate(ReloadText, PlayerText.position, PlayerText.rotation);
             Debug.Log("empty");
         }
 
@@ -102,6 +120,8 @@ public class GunComponent : MonoBehaviour
     void Start()
     {
         CurrentMagCapacity = MaxMagCapcity;
+        CreateText = false;
+        
     }
 
 
@@ -109,7 +129,7 @@ public class GunComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CreateReloadText();
         DT = Time.deltaTime;
         ShootDelay -= DT;
 
