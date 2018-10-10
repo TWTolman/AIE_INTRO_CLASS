@@ -20,6 +20,7 @@ public class GunComponent : MonoBehaviour
     public bool ShootText;
     public bool ReloadCheck;
     public bool CreateText;
+    public GameObject SpeechBuble;
 
     float DT;
     public Transform ShootPoint;
@@ -40,12 +41,12 @@ public class GunComponent : MonoBehaviour
     public void Reload()
     {
 
-        if (Input.GetKey(KeyCode.Joystick1Button3) && CurrentMagCapacity <= 0) ReloadCheck = true;
-        else ReloadCheck = false;
+        //if (Input.GetKey(KeyCode.Joystick1Button3) && CurrentMagCapacity <= 0) ReloadCheck = true;
+        //else ReloadCheck = false;
         
 
-        //if (Input.GetKey(KeyCode.LeftShift) && CurrentMagCapacity <= 0 ) ReloadCheck = true;
-          // else ReloadCheck = false;
+        if (Input.GetKey(KeyCode.LeftShift) && CurrentMagCapacity <= 0 ) ReloadCheck = true;
+           else ReloadCheck = false;
 
         if (ReloadCheck == true)
 
@@ -54,6 +55,7 @@ public class GunComponent : MonoBehaviour
 
             Debug.Log("RELOADED");
             CurrentMagCapacity = MaxMagCapcity;
+            SpeechBuble.SetActive(false);
 
         }
 
@@ -98,6 +100,9 @@ public class GunComponent : MonoBehaviour
 
             //GameObject Temp_ReloadText = Instantiate(ReloadText, PlayerText.position, PlayerText.rotation);
             Debug.Log("empty");
+
+            SpeechBuble.SetActive  (true);
+
         }
 
 
@@ -120,7 +125,7 @@ public class GunComponent : MonoBehaviour
     void Start()
     {
         CurrentMagCapacity = MaxMagCapcity;
-        CreateText = false;
+        SpeechBuble.SetActive (false);
         
     }
 
