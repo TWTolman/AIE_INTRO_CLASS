@@ -15,9 +15,10 @@ public class PlayerInputComponent : MonoBehaviour {
     public void UpdateInput()
 
     {
-        if (Input.GetButton("Fire1") && CurrentGun != null) CurrentGun.Fire();
-       
-     
+        if (Input.GetAxis("Right_Trigger") >= .2 && CurrentGun != null) CurrentGun.Fire();
+        //if (Input.GetButton("Fire1") && CurrentGun != null) CurrentGun.Fire();
+
+
     }
 
 

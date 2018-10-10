@@ -34,19 +34,19 @@ public class GunComponent : MonoBehaviour
     {
        if (CreateText = false && (CurrentMagCapacity <= 0 ))
             Instantiate(ReloadText, transform);
-        CreateText = true;
+            CreateText = true;
      }
 
 
     public void Reload()
     {
 
-        //if (Input.GetKey(KeyCode.Joystick1Button3) && CurrentMagCapacity <= 0) ReloadCheck = true;
-        //else ReloadCheck = false;
+        if (Input.GetKey(KeyCode.Joystick1Button3) && CurrentMagCapacity <= 0) ReloadCheck = true;
+        else ReloadCheck = false;
         
 
-        if (Input.GetKey(KeyCode.LeftShift) && CurrentMagCapacity <= 0 ) ReloadCheck = true;
-           else ReloadCheck = false;
+        //if (Input.GetKey(KeyCode.LeftShift) && CurrentMagCapacity <= 0 ) ReloadCheck = true;
+           //else ReloadCheck = false;
 
         if (ReloadCheck == true)
 
@@ -77,7 +77,8 @@ public class GunComponent : MonoBehaviour
             Debug.Log("shoot");
             //Instantiate 
 
-            GameObject TempBullet = Instantiate(BulletPrefab, ShootPoint.position, ShootPoint.rotation);
+            GameObject TempBullet = Instantiate(BulletPrefab, ShootPoint); 
+            //Instantiate(BulletPrefab, ShootPoint.position, ShootPoint.rotation);
             TempBullet.GetComponent<Rigidbody>().velocity = ShootPoint.forward * BulletLaunchVelocity;
             Destroy(TempBullet, 10.0f);
 

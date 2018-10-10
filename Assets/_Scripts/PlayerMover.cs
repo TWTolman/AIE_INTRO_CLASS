@@ -20,19 +20,30 @@ public class PlayerMover : MonoBehaviour {
 
     public bool Sprint;
 
-	// Use this for initialization
-	void Start () {
+  
+
+// Use this for initialization
+void Start () {
 
         RB = GetComponent<Rigidbody>();
 
     }
 
-    void UpdateInput()
+
+
+void UpdateInput()
     {
+          
+       
+
+
         IPDirection.x = Input.GetAxisRaw("Horizontal");
         IPDirection.z = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(KeyCode.Joystick1Button1)) Sprint = true;
+      
+        
+        //if (Input.GetKey(KeyCode.Joystick1Button2)) Sprint = true;
+       if (Input.GetAxis("Left_Trigger") >= .2) Sprint = true;
         else Sprint = false;
 
         //if (Input.GetKey(KeyCode.Space)) Sprint = true;
