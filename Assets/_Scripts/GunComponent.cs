@@ -80,6 +80,7 @@ public class GunComponent : MonoBehaviour
             GameObject TempBullet = Instantiate(BulletPrefab, ShootPoint); 
             //Instantiate(BulletPrefab, ShootPoint.position, ShootPoint.rotation);
             TempBullet.GetComponent<Rigidbody>().velocity = ShootPoint.forward * BulletLaunchVelocity;
+            TempBullet.GetComponent<BulletScript>().Owner = gameObject;
             Destroy(TempBullet, 10.0f);
 
             ShootDelay = MaxShootDelay;

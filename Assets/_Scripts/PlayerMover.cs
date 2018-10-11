@@ -20,6 +20,57 @@ public class PlayerMover : MonoBehaviour {
 
     public bool Sprint;
 
+    public Camera MainCamera;
+
+
+
+
+    public RaycastHit RaycastFromScreenPoint(Vector2 ScreenPoint, Camera cam)
+        {
+
+
+        RaycastHit Result;
+
+        Ray ray = cam.ScreenPointToRay(ScreenPoint);
+
+        
+
+        Physics.Raycast ( ray, out Result, 1000.0f);
+
+        return Result;
+
+
+        }
+
+    public void DoMouseLook (Vector2 MousePosition)
+    {
+
+        if (MainCamera != null)
+        { 
+
+        RaycastHit hit = RaycastFromScreenPoint(MousePosition, MainCamera);
+
+
+            //Vector3 Dir = (hit.point - transform.position).normalized;
+        Vector3 Dir = (transform.position - hit.point).normalized * -1;
+
+            
+            Dir.y = 0;
+            //Dir.z = 0;
+
+            transform.forward = Dir;
+        }
+
+
+        else
+        {
+            Debug.Log("assing camera");
+
+        }
+
+      
+    }
+
   
 
 // Use this for initialization
@@ -87,15 +138,22 @@ void UpdateInput()
         }
     }
 
-    
-    
-    // Update is called once per frame
-	void Update () {
+    void FixedUpdate()
+    {
         DT = Time.deltaTime;
 
-        UpdateInput();
-        DoMovement(RB, IPDirection, Speed, DT,MaxMovementSpeed);
+    
+        DoMovement(RB, IPDirection, Speed, DT, MaxMovementSpeed);
+        DoMouseLook(Input.mousePosition);
 
+    }
+
+    // Update is called once per frame
+    void Update () {
+       
+
+        UpdateInput();
+   
     
     }
 }
