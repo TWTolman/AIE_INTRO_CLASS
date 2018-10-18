@@ -93,12 +93,12 @@ void UpdateInput()
 
       
         
-        //if (Input.GetKey(KeyCode.Joystick1Button2)) Sprint = true;
-       if (Input.GetAxis("Left_Trigger") >= .2) Sprint = true;
-        else Sprint = false;
-
-        //if (Input.GetKey(KeyCode.Space)) Sprint = true;
+       //if (Input.GetKey(KeyCode.Joystick1Button2)) Sprint = true;
+      // if (Input.GetAxis("Left_Trigger") >= .2) Sprint = true;
         //else Sprint = false;
+
+        if (Input.GetKey(KeyCode.Space)) Sprint = true;
+      else Sprint = false;
     }
 
     public Vector3 VectorClamp(Vector3 CurrentVector, float XMax, float YMax, float ZMax)

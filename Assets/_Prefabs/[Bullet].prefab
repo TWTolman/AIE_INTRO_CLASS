@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
+  DamageValue: 10
 --- !u!135 &135136439847037196
 SphereCollider:
   m_ObjectHideFlags: 1

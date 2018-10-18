@@ -7,12 +7,23 @@ public class BulletScript : MonoBehaviour {
     //public LayerMask layer;
 
     public GameObject Owner;
+    public float DamageValue = 2.0f;
 
     public void OnTriggerEnter(Collider other)
     {
      if (other.gameObject != Owner)
+        {
+
+            Health_Component TempHealthComponentReference = other.GetComponent<Health_Component>();
+               
+
+            if (TempHealthComponentReference != null)
             {
-            Destroy(gameObject);
+                TempHealthComponentReference.TakeDamage(DamageValue);
+            }
+            
+
+           Destroy(gameObject);
             }
     }
 
