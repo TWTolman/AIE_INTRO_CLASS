@@ -43,6 +43,7 @@ public class PlayerMover : MonoBehaviour {
         }
 
     public void DoMouseLook (Vector2 MousePosition)
+
     {
 
         if (MainCamera != null)
@@ -51,7 +52,7 @@ public class PlayerMover : MonoBehaviour {
         RaycastHit hit = RaycastFromScreenPoint(MousePosition, MainCamera);
 
 
-            //Vector3 Dir = (hit.point - transform.position).normalized;
+            //Vector3 Dir = (hit.point - transform.position).normalized;   
         Vector3 Dir = (transform.position - hit.point).normalized * -1;
 
             
@@ -93,11 +94,11 @@ void UpdateInput()
 
       
         
-       //if (Input.GetKey(KeyCode.Joystick1Button2)) Sprint = true;
-      // if (Input.GetAxis("Left_Trigger") >= .2) Sprint = true;
-        //else Sprint = false;
+      //if (Input.GetKey(KeyCode.Joystick1Button2)) Sprint = true;
+      if (Input.GetAxis("Left_Trigger") >= .2) Sprint = true;
+      //else Sprint = false;
 
-        if (Input.GetKey(KeyCode.Space)) Sprint = true;
+      //if (Input.GetKey(KeyCode.Space)) Sprint = true;
       else Sprint = false;
     }
 
@@ -120,7 +121,7 @@ void UpdateInput()
      
       
       //ridgidbody.velocity = new Vector3(Mathf.Clamp(rigidbody.velocity.x, -MaxSpeed, MaxSpeed), RB.velocity.y,
-                                 // Mathf.Clamp(rigidbody.velocity.z, -MaxSpeed, MaxSpeed)); 
+      // Mathf.Clamp(rigidbody.velocity.z, -MaxSpeed, MaxSpeed)); 
 
        if (Sprint == true)
         {

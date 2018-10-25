@@ -11,6 +11,9 @@ public class BulletScript : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
+
+   
+
      if (other.gameObject != Owner)
         {
 
@@ -27,8 +30,16 @@ public class BulletScript : MonoBehaviour {
             }
     }
 
-    // Use this for initialization
-    void Start () {
+    //if (BulletExists = true)
+    //    {
+    //        transform.DetachChildren();
+        
+
+
+
+
+// Use this for initialization
+void Start () {
 		
 	}
 	

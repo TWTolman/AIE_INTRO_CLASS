@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInputComponent : MonoBehaviour {
 
     public GunComponent CurrentGun;
+    //public bool BulletExists;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +16,24 @@ public class PlayerInputComponent : MonoBehaviour {
     public void UpdateInput()
 
     {
-        if (Input.GetAxis("Right_Trigger") >= .2 && CurrentGun != null) CurrentGun.Fire();
-        //if (Input.GetButton("Fire1") && CurrentGun != null) CurrentGun.Fire();
+        //if (Input.GetAxis("Right_Trigger") >= .2 && CurrentGun != null) CurrentGun.Fire();
+        if (Input.GetButton("Fire1") && CurrentGun != null)
+
+        {
+            CurrentGun.Fire();
+           // BulletExists = true;
+
+        }
+
+        //else BulletExists = false;
+
+       
+
+        
 
 
-    }
+    } 
+
 
 
 	
