@@ -77,7 +77,7 @@ public class GunComponent : MonoBehaviour
             Debug.Log("shoot");
             //Instantiate 
 
-            GameObject TempBullet = Instantiate(BulletPrefab, ShootPoint); 
+            GameObject TempBullet = Instantiate(BulletPrefab, ShootPoint.transform.position, ShootPoint.transform.rotation); 
             //Instantiate(BulletPrefab, ShootPoint.position, ShootPoint.rotation);
             TempBullet.GetComponent<Rigidbody>().velocity = ShootPoint.forward * BulletLaunchVelocity;
             TempBullet.GetComponent<BulletScript>().Owner = gameObject;
