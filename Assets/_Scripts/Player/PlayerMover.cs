@@ -42,34 +42,43 @@ public class PlayerMover : MonoBehaviour {
 
         }
 
-    public void DoMouseLook (Vector2 MousePosition)
-    {
 
-        if (MainCamera != null)
-        { 
+    //public void DoRightStickLook ()
+   // {
 
-        RaycastHit hit = RaycastFromScreenPoint(MousePosition, MainCamera);
+        
+
+   // }
 
 
-            //Vector3 Dir = (hit.point - transform.position).normalized;
-        Vector3 Dir = (transform.position - hit.point).normalized * -1;
+    //public void DoMouseLook (Vector2 MousePosition)
+    //{
+
+    //    if (MainCamera != null)
+    //    { 
+
+    //    RaycastHit hit = RaycastFromScreenPoint(MousePosition, MainCamera);
+
+
+    //        //Vector3 Dir = (hit.point - transform.position).normalized;
+    //    Vector3 Dir = (transform.position - hit.point).normalized * -1;
 
             
-            Dir.y = 0;
-            //Dir.z = 0;
+    //        Dir.y = 0;
+    //        //Dir.z = 0;
 
-            transform.forward = Dir;
-        }
+    //        transform.forward = Dir;
+    //    }
 
 
-        else
-        {
-            Debug.Log("assing camera");
+    //    else
+    //    {
+    //        Debug.Log("assing camera");
 
-        }
+    //    }
 
       
-    }
+    //}
 
   
 
@@ -91,14 +100,24 @@ void UpdateInput()
         IPDirection.x = Input.GetAxisRaw("Horizontal");
         IPDirection.z = Input.GetAxisRaw("Vertical");
 
-      
-        
-       //if (Input.GetKey(KeyCode.Joystick1Button2)) Sprint = true;
-      // if (Input.GetAxis("Left_Trigger") >= .2) Sprint = true;
-        //else Sprint = false;
+        float H2 = Input.GetAxisRaw("Horizontal2");
+        float V2 = Input.GetAxisRaw("Vertical2");
 
-        if (Input.GetKey(KeyCode.Space)) Sprint = true;
-      else Sprint = false;
+        Vector3 LookDirection = new Vector3(Input.GetAxisRaw("Horizontal2"), 0, Input.GetAxisRaw("Vertical2"));
+        transform.rotation = Quaternion.LookRotation(LookDirection);
+
+
+
+
+
+
+
+        //if (Input.GetKey(KeyCode.Joystick1Button2)) Sprint = true;
+        if (Input.GetAxis("Left_Trigger") >= .2) Sprint = true;
+       else Sprint = false;
+
+      //  if (Input.GetKey(KeyCode.Space)) Sprint = true;
+      //else Sprint = false;
     }
 
     public Vector3 VectorClamp(Vector3 CurrentVector, float XMax, float YMax, float ZMax)
@@ -144,7 +163,12 @@ void UpdateInput()
 
     
         DoMovement(RB, IPDirection, Speed, DT, MaxMovementSpeed);
-        DoMouseLook(Input.mousePosition);
+        //DoMouseLook(Input.mousePosition);
+
+        Vector3 LookDirection = new Vector3(Input.GetAxisRaw("RightHoriz"), 0, Input.GetAxisRaw("RightVert"));
+        transform.rotation = Quaternion.LookRotation(LookDirection);
+
+
 
     }
 
