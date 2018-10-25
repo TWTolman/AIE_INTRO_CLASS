@@ -82,6 +82,7 @@ public class GunComponent : MonoBehaviour
             TempBullet.GetComponent<Rigidbody>().velocity = ShootPoint.forward * BulletLaunchVelocity;
             TempBullet.GetComponent<BulletScript>().Owner = gameObject;
             Destroy(TempBullet, 10.0f);
+            
 
             ShootDelay = MaxShootDelay;
             CurrentMagCapacity--;
