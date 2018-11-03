@@ -90,6 +90,16 @@ void Start () {
     }
 
 
+void DoLookDirection()
+
+    {
+        float H2 = Input.GetAxisRaw("Horizontal2");
+        float V2 = Input.GetAxisRaw("Vertical2");
+
+        Vector3 LookDirection = new Vector3(Input.GetAxisRaw("Horizontal2"), 0, Input.GetAxisRaw("Vertical2"));
+        transform.rotation = Quaternion.LookRotation(LookDirection);
+
+    }
 
 void UpdateInput()
     {
@@ -100,11 +110,7 @@ void UpdateInput()
         IPDirection.x = Input.GetAxisRaw("Horizontal");
         IPDirection.z = Input.GetAxisRaw("Vertical");
 
-        float H2 = Input.GetAxisRaw("Horizontal2");
-        float V2 = Input.GetAxisRaw("Vertical2");
-
-        Vector3 LookDirection = new Vector3(Input.GetAxisRaw("Horizontal2"), 0, Input.GetAxisRaw("Vertical2"));
-        transform.rotation = Quaternion.LookRotation(LookDirection);
+        
 
 
 
@@ -165,9 +171,9 @@ void UpdateInput()
         DoMovement(RB, IPDirection, Speed, DT, MaxMovementSpeed);
         //DoMouseLook(Input.mousePosition);
 
-        Vector3 LookDirection = new Vector3(Input.GetAxisRaw("RightHoriz"), 0, Input.GetAxisRaw("RightVert"));
-        transform.rotation = Quaternion.LookRotation(LookDirection);
-
+        //Vector3 LookDirection = new Vector3(Input.GetAxisRaw("RightHoriz"), 0, Input.GetAxisRaw("RightVert"));
+        //transform.rotation = Quaternion.LookRotation(LookDirection);
+      
 
 
     }
@@ -177,7 +183,9 @@ void UpdateInput()
        
 
         UpdateInput();
-   
-    
+        DoLookDirection();
+
+
+
     }
 }
