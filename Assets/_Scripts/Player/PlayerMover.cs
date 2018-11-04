@@ -59,7 +59,7 @@ public class PlayerMover : MonoBehaviour {
 
     void CreateWall()
     {
-        Vector3 CenterPos = new Vector3(LeftLimit + RightLimit, DownLimit + UpLimit) / 2f;
+        //Vector3 CenterPos = new Vector3(LeftLimit + RightLimit, DownLimit + UpLimit) / 2f;
 
 
         float ScaleX = Vector3.Distance(new Vector3(LeftLimit, 0, 0), new Vector3(RightLimit, 0, 0));
@@ -89,8 +89,8 @@ public class PlayerMover : MonoBehaviour {
         ColliderWallBottom.transform.position = new Vector3(0, 0, DownLimit);
         ColliderWallBottom.transform.localScale = new Vector3(ScaleX, 10, 1);
 
-        BottomWallTriggerCollider = GetComponent<Collider>();
-        BottomWallTriggerCollider.isTrigger = true;
+       // BottomWallTriggerCollider = GetComponent<Collider>();
+       // BottomWallTriggerCollider.isTrigger = true;
 
 
 
@@ -104,7 +104,7 @@ public class PlayerMover : MonoBehaviour {
 
     void ScreenClamp()
     {
-         CamDist = (transform.position.y - Camera.main.transform.position.y);
+         CamDist = (transform.position.y - Camera.main.transform.position.y) - 4 ;
 
          LeftLimit = Camera.main.ViewportToWorldPoint (new Vector3 (0, 0,CamDist)).x;
         
@@ -216,7 +216,7 @@ void UpdateInput()
        // {
             IPDirection.x = Input.GetAxisRaw("Horizontal");
             IPDirection.z = Input.GetAxisRaw("Vertical");
-        Debug.Log("x: " + IPDirection.x + "\n z: " + IPDirection.z);
+        //Debug.Log("x: " + IPDirection.x + "\n z: " + IPDirection.z);
 
 
         if (IPDirection.x > 0.2f || IPDirection.z > 0.2f)
