@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class Shaker : MonoBehaviour
 {
@@ -11,9 +12,11 @@ public class Shaker : MonoBehaviour
     [Range (0f,2f)]
     public float ShakeIntensity;
     public float Duration;
+    private PlayerIndex playerIndex;
 
-   void Start()
+    void Start()
     {
+        
         TargetPos = GetComponent<Transform>();
         StartPos = TargetPos.localPosition;
 
@@ -48,6 +51,13 @@ public class Shaker : MonoBehaviour
             var RandomShakePoint = new Vector3(Random.Range(-1f, 1f) * ShakeIntensity, StartPos.y, Random.Range(-1f, 1f) * ShakeIntensity);
             TargetPos.localPosition = RandomShakePoint;
             yield return null;
+
+
+            //GamePad.SetVibration(PlayerIndex.One, 1.0f, 1.0f);
+
+            //WaitForSeconds (.01f)
+
+            //GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
 
 
 
