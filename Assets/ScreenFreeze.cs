@@ -7,11 +7,18 @@ public class ScreenFreeze : MonoBehaviour {
     public float FreezeDuration = 1f ;
     float PendingFreezeDuration = 0f;
     bool isFrozen = false;
+    public float PushForce = 200;
+    public float RotationForce = 200;
 
 
     
     void OnCollisionEnter(Collision collission)
     {
+
+        Vector3 HitDirection = collission.collider.transform.position - gameObject.transform.position;
+        collission.collider.GetComponent<Rigidbody>().AddForce(HitDirection * PushForce);
+
+        collission.collider.GetComponent<Rigidbody>().AddTorque(HitDirection * PushForce);
         Debug.Log(collission.collider.name);
         StartCoroutine(DoFreeze());
         

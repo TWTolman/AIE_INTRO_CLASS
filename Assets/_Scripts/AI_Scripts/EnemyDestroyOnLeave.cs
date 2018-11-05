@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyDestroyOnLeave : MonoBehaviour {
 
+    public float EnemyDeathVelocity;
+
    void OnTriggerEnter(Collider other)
         
     {
@@ -11,8 +13,8 @@ public class EnemyDestroyOnLeave : MonoBehaviour {
        
         if (other.gameObject.tag == "Enemy")
         {
-
-          Destroy(other.gameObject, 2.0f);
+            //GetComponent<Rigidbody>().AddForce(transform.forward * -EnemyDeathVelocity * 5);
+            Destroy(other.gameObject, 0.3f);
            
         }
 

@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 33976345101126614}
   - component: {fileID: 23232350262067064}
   - component: {fileID: 64507587956033296}
-  - component: {fileID: 114420588965518698}
   m_Layer: 8
   m_Name: '[Reload_Text]'
   m_TagString: Untagged
@@ -179,9 +178,11 @@ GameObject:
   - component: {fileID: 54403735185676058}
   - component: {fileID: 114987268451400176}
   - component: {fileID: 114787740535525248}
+  - component: {fileID: 114340992625791456}
+  - component: {fileID: 114453711189978796}
   m_Layer: 8
   m_Name: '[Player_Character]'
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +257,7 @@ Transform:
   m_GameObject: {fileID: 1707171074186046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4.36, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 3}
+  m_LocalScale: {x: 1.6439985, y: 1.4341587, z: 1.6439985}
   m_Children:
   - {fileID: 4636776364325142}
   - {fileID: 4102755099484084}
@@ -765,7 +766,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!64 &64507587956033296
 MeshCollider:
@@ -860,17 +861,33 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129119539692762}
   m_Enabled: 1
---- !u!114 &114420588965518698
+--- !u!114 &114340992625791456
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1383737935084928}
+  m_GameObject: {fileID: 1707171074186046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 9444fb2ffc12f5f45b9df15e400ffa90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FreezeDuration: 0.3
+  PushForce: 100
+  RotationForce: 200
+--- !u!114 &114453711189978796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707171074186046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2367a7407c2c4104c9d907dc1279cd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shaker: {fileID: 0}
+  duration: 0.2
 --- !u!114 &114787740535525248
 MonoBehaviour:
   m_ObjectHideFlags: 1

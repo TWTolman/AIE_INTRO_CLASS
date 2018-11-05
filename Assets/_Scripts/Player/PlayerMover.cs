@@ -43,8 +43,13 @@ public class PlayerMover : MonoBehaviour {
     public GameObject ColliderWallRight;
     public GameObject ColliderWallTop;
     public GameObject ColliderWallBottom;
+    public GameObject PirateShip;
 
     private Collider BottomWallTriggerCollider;
+
+    public Collider PirateShipCollider;
+    public Collider PlayerCollider;
+
 
 
 
@@ -56,6 +61,9 @@ public class PlayerMover : MonoBehaviour {
 
 
     //-----------------------------------------------//
+
+
+   
 
     void CreateWall()
     {
@@ -86,11 +94,17 @@ public class PlayerMover : MonoBehaviour {
         //Bottom WALL
         Instantiate(ColliderWallBottom);
 
-        ColliderWallBottom.transform.position = new Vector3(0, 0, DownLimit);
+        ColliderWallBottom.transform.position = new Vector3(0, 0, DownLimit - 4);
         ColliderWallBottom.transform.localScale = new Vector3(ScaleX, 10, 1);
 
-       // BottomWallTriggerCollider = GetComponent<Collider>();
-       // BottomWallTriggerCollider.isTrigger = true;
+
+        //Ship 
+       
+        Instantiate(PirateShip);
+        PirateShip.transform.position = new Vector3(0, -7, DownLimit - 7f  );
+
+        // BottomWallTriggerCollider = GetComponent<Collider>();
+        // BottomWallTriggerCollider.isTrigger = true;
 
 
 
@@ -104,7 +118,7 @@ public class PlayerMover : MonoBehaviour {
 
     void ScreenClamp()
     {
-         CamDist = (transform.position.y - Camera.main.transform.position.y) - 4 ;
+         CamDist = (transform.position.y - Camera.main.transform.position.y) - 3 ;
 
          LeftLimit = Camera.main.ViewportToWorldPoint (new Vector3 (0, 0,CamDist)).x;
         
@@ -181,9 +195,17 @@ public class PlayerMover : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+
+     
+
         RB = GetComponent<Rigidbody>();
         ScreenClamp();
         CreateWall();
+
+        PirateShipCollider = GameObject.FindGameObjectWithTag("Ship").GetComponent<Collider>();
+        PlayerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>();
+
+        Physics.IgnoreCollision(PirateShipCollider, PlayerCollider, true);
     }
 
 
