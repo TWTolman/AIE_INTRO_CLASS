@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 public class Shaker : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class Shaker : MonoBehaviour
     [Range (0f,2f)]
     public float ShakeIntensity;
     public float Duration;
-    private PlayerIndex playerIndex;
+    //private PlayerIndex playerIndex;
 
     void Start()
     {
