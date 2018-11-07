@@ -6,7 +6,6 @@ public class GameController : MonoBehaviour {
 
     public GameObject Enemy;
     public Vector3 SpawnValues;
-    public float EnemyLaunchVelocity;
     public int EnemyCount;
     public float SpawnWait;
     public float StartWait;

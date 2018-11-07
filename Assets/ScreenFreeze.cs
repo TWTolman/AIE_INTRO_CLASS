@@ -19,7 +19,7 @@ public class ScreenFreeze : MonoBehaviour {
         collission.collider.GetComponent<Rigidbody>().AddForce(HitDirection * PushForce);
 
         collission.collider.GetComponent<Rigidbody>().AddTorque(HitDirection * PushForce);
-        Debug.Log(collission.collider.name);
+        //Debug.Log(collission.collider.name);
         StartCoroutine(DoFreeze());
         
     }
@@ -33,13 +33,13 @@ public class ScreenFreeze : MonoBehaviour {
 
     IEnumerator DoFreeze()
     {
-        Debug.Log("freeze");
+        //Debug.Log("freeze");
         isFrozen = true;
         var Origonal = Time.timeScale;
         Time.timeScale = 0f;
 
         yield return new WaitForSecondsRealtime(FreezeDuration);
-        Debug.Log("yeild return!");
+        //Debug.Log("yeild return!");
         Time.timeScale = Origonal;
 
         PendingFreezeDuration = 0;

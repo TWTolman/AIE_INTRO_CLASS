@@ -53,7 +53,7 @@ public class GunComponent : MonoBehaviour
 
         {
 
-            Debug.Log("RELOADED");
+            //Debug.Log("RELOADED");
             CurrentMagCapacity = MaxMagCapcity;
             SpeechBuble.SetActive(false);
 
@@ -74,7 +74,7 @@ public class GunComponent : MonoBehaviour
         if (CurrentMagCapacity > 0 && ShootDelay <= 0)
 
         {
-            Debug.Log("shoot");
+            //Debug.Log("shoot");
             //Instantiate 
 
             GameObject TempBullet = Instantiate(BulletPrefab, ShootPoint.transform.position, ShootPoint.transform.rotation); 
@@ -102,7 +102,7 @@ public class GunComponent : MonoBehaviour
             //Instantiate(ReloadText, transform);
 
             //GameObject Temp_ReloadText = Instantiate(ReloadText, PlayerText.position, PlayerText.rotation);
-            Debug.Log("empty");
+            //Debug.Log("empty");
 
             SpeechBuble.SetActive  (true);
 

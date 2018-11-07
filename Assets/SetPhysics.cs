@@ -15,7 +15,7 @@ public class SetPhysics : MonoBehaviour {
         {
             MyCollider = GetComponent<Collider>();
             MyCollider.isTrigger = false;
-            Debug.Log("Trigger exit");
+            //Debug.Log("Trigger exit");
         }
 
     }

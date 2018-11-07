@@ -10,7 +10,7 @@ public class EnemyMover : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        EnemyLaunchVelocity = Random.Range(50, 100);
+        EnemyLaunchVelocity = EnemyLaunchVelocity *  Random.Range(25,50);
      GetComponent<Rigidbody>().AddForce(transform.forward * - EnemyLaunchVelocity);
 
 

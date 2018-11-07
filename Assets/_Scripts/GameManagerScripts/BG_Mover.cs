@@ -21,7 +21,7 @@ public class BG_Mover : MonoBehaviour {
 	void Update () {
 
         float newPosition = Mathf.Repeat(Time.time * scrollSpeed,tilesizeZ);
-        Debug.Log(newPosition);
+        //Debug.Log(newPosition);
         transform.position = startPosition + Vector3.forward * -1 * newPosition;
 
 

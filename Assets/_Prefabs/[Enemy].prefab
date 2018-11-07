@@ -25,7 +25,8 @@ GameObject:
   - component: {fileID: 54430552538198100}
   - component: {fileID: 114091152215398370}
   - component: {fileID: 114353725893638010}
-  - component: {fileID: 114161223474045080}
+  - component: {fileID: 114062514095566808}
+  - component: {fileID: 114886109858003034}
   m_Layer: 0
   m_Name: '[Enemy]'
   m_TagString: Enemy
@@ -59,6 +60,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 3206441269757634f9331a7ebe02b162, type: 2}
   m_StaticBatchInfo:
@@ -102,6 +104,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &114062514095566808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444845664857718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9bfdcb904ed3d141942bf7966c4e02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 25
+  OtherHealth: {fileID: 0}
 --- !u!114 &114091152215398370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,20 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8ee22f6f8d38041a9ae4b4e9f9bd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyLaunchVelocity: 100
---- !u!114 &114161223474045080
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1444845664857718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2367a7407c2c4104c9d907dc1279cd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Shaker: {fileID: 0}
-  duration: 1
+  EnemyLaunchVelocity: 5
 --- !u!114 &114353725893638010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +140,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f673238ea5a408f478b5690bf47b5d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114886109858003034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444845664857718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73e19d6335d47841b5fe954383ede8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  CurrentHealth: 0
 --- !u!135 &135412058997987372
 SphereCollider:
   m_ObjectHideFlags: 1
