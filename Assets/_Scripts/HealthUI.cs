@@ -5,32 +5,23 @@ using UnityEngine .UI;
 
 public class HealthUI : MonoBehaviour {
 
-    public Image HealthBar;
+
     public Slider myHealthBar;
 
-    private ObjectHealth shipHealth;
-
-    private void Awake()
+    void Start()
     {
-        shipHealth = GetComponent<ObjectHealth>();
+        ObjectHealth ShipHealth = GetComponent<ObjectHealth>();
+        myHealthBar.value = ShipHealth.MaxHealth;
+
     }
 
 
+
     // Update is called once per frame
-    void Update ()
-    {
-        if (shipHealth != null)
-        {
-            myHealthBar.value = shipHealth.CurrentHealth;
-        }
-        
+    void Update () {
 
-       // if (HealthBar !=null)
-       // {
-
-
-           // HealthBar.fillAmount = ShipHealth.CurrentHealth / ShipHealth.MaxHealth; 
-        //}
+        ObjectHealth ShipHealth = GetComponent<ObjectHealth>();
+        myHealthBar.value = ShipHealth.CurrentHealth;
 
     }
 }
