@@ -23,15 +23,20 @@ public class PlayerMover : MonoBehaviour {
     public bool CanBurst;
 
     private Vector2 LastInput;
-   
+
 
     private Vector2 CurrentInput;
 
     public float BurstForce;
 
-   
+
     public Collider PirateShipCollider;
     public Collider PlayerCollider;
+
+    
+    public GameObject PlayerVisual;
+
+    public float BoostSpeed;
 
 
 
@@ -43,12 +48,12 @@ public class PlayerMover : MonoBehaviour {
 
     //public void DoBurstPush()
 
-        
+
 
     //{
     //    CurrentInput = new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2"));
-        
-        
+
+
     //    //if ((Input.GetAxisRaw("Horizontal2") > 0.2f) || (Input.GetAxisRaw("Vertical2") > 0.2f))
 
 
@@ -59,7 +64,7 @@ public class PlayerMover : MonoBehaviour {
     //        RB.velocity = new Vector3 (0,0,0);
     //    }
 
-       
+
     //    if (CanBurst && CurrentInput.magnitude < 0.2f && LastInput.magnitude > 0.2f)
 
 
@@ -85,10 +90,10 @@ public class PlayerMover : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
 
 
-     
+
 
         RB = GetComponent<Rigidbody>();
         //ScreenClamp();
@@ -101,9 +106,48 @@ public class PlayerMover : MonoBehaviour {
     }
 
 
-   
 
-    void DoLookDirection()
+    //void BoostDashRaycast()
+    //{
+
+    //    Vector3 PlayerVisualPosition = PlayerVisual.transform.position;
+    //    Vector3 BoostDirection = (gameObject.transform.position - PlayerVisualPosition).normalized;
+
+    //    RaycastHit HitInfo;
+
+    //    Debug.DrawLine(PlayerVisualPosition, PlayerVisualPosition + BoostDirection, Color.red);
+
+    //    if (Physics.Raycast(PlayerVisualPosition, BoostDirection, out HitInfo))
+    //    {
+    //        if (HitInfo.collider.gameObject.CompareTag("EnemyTriggerVolume") && Input.GetButton("Fire1"))
+    //        {
+    //            Debug.Log("Ray is casting into trigger volume");
+
+
+    //            Vector3 NewBoostPosition = (HitInfo.collider.gameObject.transform.position);
+
+    //            Debug.DrawRay(PlayerVisualPosition, BoostDirection.normalized * 100f, Color.red);
+
+
+
+    //            //HitInfo.collider.GetComponentInParent;
+    //            BoostDirection = NewBoostPosition;
+
+    //            Vector3 NewBoostDirection = (gameObject.transform.position - NewBoostPosition).normalized * -1 ;
+
+    //            gameObject.transform.Translate(NewBoostDirection *BoostSpeed * Time.deltaTime);
+    //        }
+    //    }
+
+
+    //}
+
+
+
+
+ 
+
+void DoLookDirection()
 
     {
         float H2 = Input.GetAxisRaw("Horizontal2");
@@ -138,7 +182,9 @@ void UpdateInput()
                 RB.velocity = new Vector3(0, 0, 0);
             //       CanBurst = true;
             //Debug.Log("x: "+ IPDirection.x +"\n z: "+ IPDirection.z);
-         //   }
+            //   }
+
+          
 
 
         }
@@ -233,6 +279,9 @@ void UpdateInput()
 
     // Update is called once per frame
     void Update () {
+
+
+        //BoostDashRaycast();
 
         //ScreenClamp();
 

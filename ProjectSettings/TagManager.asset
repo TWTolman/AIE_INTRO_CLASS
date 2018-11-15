@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - TopWall
   - Ship
+  - EnemyTriggerVolume
   layers:
   - Default
   - TransparentFX
