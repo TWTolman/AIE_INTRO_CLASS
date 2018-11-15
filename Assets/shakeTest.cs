@@ -12,12 +12,6 @@ public class shakeTest : MonoBehaviour {
 
    void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Enemy"))
-        {
-            return;
-        }
-      
-
         Shaker.Shake(duration);
     }
  //   void Update ()
