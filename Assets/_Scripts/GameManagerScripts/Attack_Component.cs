@@ -29,7 +29,7 @@ public class Attack_Component : MonoBehaviour
 
     //    }
     //}
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Ship") 
 
@@ -37,8 +37,7 @@ public class Attack_Component : MonoBehaviour
 
             Debug.Log("collision happend");
 
-            ObjectHealth Health = other.gameObject.GetComponent<ObjectHealth>();
-           // ObjectHealth Health = other.GetComponent<ObjectHealth>();
+            ObjectHealth Health = other.GetComponent<ObjectHealth>();
             {
 
                 if (Health != null)
