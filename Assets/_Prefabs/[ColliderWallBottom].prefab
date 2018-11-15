@@ -41,14 +41,10 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
   m_LocalScale: {x: 37.594593, y: 10, z: 1}
 =======
   m_LocalScale: {x: 52.14045, y: 10, z: 1}
 >>>>>>> parent of 1672e53... Revert "sky breakers working"
-=======
-  m_LocalScale: {x: 46.375957, y: 10, z: 1}
->>>>>>> parent of 3a0b6fd... sky breakers working
 =======
   m_LocalScale: {x: 46.375957, y: 10, z: 1}
 >>>>>>> parent of 3a0b6fd... sky breakers working
