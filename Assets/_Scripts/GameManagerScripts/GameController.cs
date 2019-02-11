@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public float SpawnWait;
     public float StartWait;
     public float WaveWait;
+    public float BaseEnemyVelocity;
 
 
 
@@ -26,7 +27,8 @@ public class GameController : MonoBehaviour {
 
                 Vector3 SpawnPosition = new Vector3(Random.Range(-SpawnValues.x, SpawnValues.x), SpawnValues.y, SpawnValues.z);
                 Quaternion SpawnRotation = Quaternion.identity;
-                Instantiate(Enemy, SpawnPosition, SpawnRotation);
+                Instantiate(Enemy, SpawnPosition, SpawnRotation).GetComponent <EnemyMover>().EnemyLaunch(-Vector3.forward * BaseEnemyVelocity);
+
                 yield return new WaitForSeconds(SpawnWait);
             }
             yield return new WaitForSeconds(WaveWait);

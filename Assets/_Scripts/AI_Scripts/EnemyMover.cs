@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour {
 
-    public float EnemyLaunchVelocity;
+    
 
 
 
     // Use this for initialization
-    void Start () {
-        EnemyLaunchVelocity = EnemyLaunchVelocity *  Random.Range(25,50);
-     GetComponent<Rigidbody>().AddForce(transform.forward * - EnemyLaunchVelocity);
+  
+
+
+    public void  EnemyLaunch (Vector3 Direction)
+        {
+        
+        GetComponent<Rigidbody>().AddForce(Direction, ForceMode.VelocityChange);
+
 
 
     }
-	
-	// Update is called once per frame
+
+        
+        // Update is called once per frame
 	void Update () {
 		
 	}

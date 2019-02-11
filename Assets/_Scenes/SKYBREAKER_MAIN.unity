@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -568,6 +568,11 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114496918435252502, guid: 143bcb9643d70744095788d948bdcf8a,
+        type: 2}
+      propertyPath: AttackForceAmmount
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143bcb9643d70744095788d948bdcf8a, type: 2}
   m_IsPrefabAsset: 0
@@ -857,6 +862,7 @@ MonoBehaviour:
   SpawnWait: 0.5
   StartWait: 1
   WaveWait: 4
+  BaseEnemyVelocity: 5
 --- !u!4 &1988138231
 Transform:
   m_ObjectHideFlags: 0

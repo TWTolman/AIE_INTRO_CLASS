@@ -66,7 +66,7 @@ public class GunComponent : MonoBehaviour
     //if (CurrentMagCapacity <= 0 ) (Input.GetKey(KeyCode.LeftShift)) ;
 
 
-
+   
 
 
     public void Fire()

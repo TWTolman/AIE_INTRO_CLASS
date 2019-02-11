@@ -33,6 +33,8 @@ public class PlayerMover : MonoBehaviour {
     public Collider PirateShipCollider;
     public Collider PlayerCollider;
 
+    public float AttackForceAmmount;
+
 
 
     //-----------------------------------------------//
@@ -100,8 +102,26 @@ public class PlayerMover : MonoBehaviour {
        // Physics.IgnoreCollision(PirateShipCollider, PlayerCollider, true);
     }
 
+    public void AttackAction()
+    {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+        {
+            Debug.Log("Button press");
+            Collider[] EnemyColliders = Physics.OverlapSphere(gameObject.transform.position,1.5f);
+           
+            for (int i = 0; i < EnemyColliders.Length; i++)
+            {
+                EnemyMover AttackedEnemy = EnemyColliders[i].GetComponent<EnemyMover>();
 
-   
+                if (AttackedEnemy != null)
+                    AttackedEnemy.EnemyLaunch(Vector3.forward * AttackForceAmmount);
+            }   
+        }
+
+
+
+    }
+
 
     void DoLookDirection()
 
@@ -233,6 +253,8 @@ void UpdateInput()
 
     // Update is called once per frame
     void Update () {
+
+        AttackAction();
 
         //ScreenClamp();
 
