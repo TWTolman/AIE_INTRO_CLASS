@@ -94,10 +94,10 @@ public class PlayerMover : MonoBehaviour {
         //ScreenClamp();
         //CreateWall();
 
-        PirateShipCollider = GameObject.FindGameObjectWithTag("Ship").GetComponent<Collider>();
+       // PirateShipCollider = GameObject.FindGameObjectWithTag("Ship").GetComponent<Collider>();
         PlayerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>();
 
-        Physics.IgnoreCollision(PirateShipCollider, PlayerCollider, true);
+       // Physics.IgnoreCollision(PirateShipCollider, PlayerCollider, true);
     }
 
 
@@ -135,7 +135,7 @@ void UpdateInput()
 
         if (IPDirection.x > 0.2f || IPDirection.z > 0.2f)
             {
-                RB.velocity = new Vector3(0, 0, 0);
+              //  RB.velocity = new Vector3(0, 0, 0);
             //       CanBurst = true;
             //Debug.Log("x: "+ IPDirection.x +"\n z: "+ IPDirection.z);
          //   }

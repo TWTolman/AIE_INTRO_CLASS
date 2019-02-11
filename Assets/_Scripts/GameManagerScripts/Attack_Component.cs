@@ -29,31 +29,31 @@ public class Attack_Component : MonoBehaviour
 
     //    }
     //}
-    void OnCollisionEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Ship") 
+    //void OnCollisionEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Ship") 
 
-        {
+    //    {
 
-            Debug.Log("collision happend");
+    //        Debug.Log("collision happend");
 
-            ObjectHealth Health = other.GetComponent<ObjectHealth>();
-            {
+    //       // ObjectHealth Health = other.GetComponent<ObjectHealth>();
+    //        {
 
-                if (Health != null)
+    //            if (Health != null)
 
-                {
-                    Health.TakeDamage(Damage);
-                }
+    //            {
+    //                Health.TakeDamage(Damage);
+    //            }
 
-            }
-
-
-
-        }
+    //        }
 
 
 
-    }
+    //    }
+
+
+
+   // }
 }
 
